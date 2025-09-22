@@ -64,4 +64,3 @@ float ACrazyElevator::GetRotationSpeed() const
 {
 	return RotationSpeed;
 }
-
