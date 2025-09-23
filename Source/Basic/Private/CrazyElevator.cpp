@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "CrazyElevator.h"
@@ -15,7 +15,7 @@ ACrazyElevator::ACrazyElevator()
 	StaticMeshComp->SetRelativeLocation(FVector(-100.f, -100.f, 0.f));
 	StaticMeshComp->SetRelativeRotation(FRotator(0.0f, 0.0f, 90.f));
 	StaticMeshComp->SetWorldScale3D(FVector(0.5f));
-	
+
 	PrimaryActorTick.bCanEverTick = true;
 
 	StartLocation = FVector(-330.f, 2800.f, 50.f);
@@ -24,7 +24,7 @@ ACrazyElevator::ACrazyElevator()
 void ACrazyElevator::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
 	SetActorLocation(StartLocation);
 
 }
@@ -32,9 +32,9 @@ void ACrazyElevator::BeginPlay()
 void ACrazyElevator::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	
-	// ¹æÇâ ¹Ù²î´Â °Íµµ ½Ã°£À¸·Î ÇÏ¸é ¾ÈµÇ°í ÀÌµ¿ °Å¸®¸¦ ±âÁØÀ¸·Î ÇØ¾ß°ÚÀ½
-	// ½Ã°£À¸·Î ÇÏ¸é ¼Óµµ¸¦ ¹Ù²åÀ» ¶§ ÀÌµ¿ÇÏ´Â °Å¸®°¡ ´Þ¶óÁü
+
+	// ë°©í–¥ ë°”ë€ŒëŠ” ê²ƒë„ ì‹œê°„ìœ¼ë¡œ í•˜ë©´ ì•ˆë˜ê³  ì´ë™ ê±°ë¦¬ë¥¼ ê¸°ì¤€ìœ¼ë¡œ í•´ì•¼ê² ìŒ
+	// ì‹œê°„ìœ¼ë¡œ í•˜ë©´ ì†ë„ë¥¼ ë°”ê¿¨ì„ ë•Œ ì´ë™í•˜ëŠ” ê±°ë¦¬ê°€ ë‹¬ë¼ì§
 	if (Distance >= 400.0f || Distance < 0.0f)
 	{
 		SpeedZ *= -1;
@@ -46,7 +46,7 @@ void ACrazyElevator::Tick(float DeltaTime)
 	float AngleDegrees = GetGameTimeSinceCreation() * 90.0f;
 	float AngleRadians = FMath::DegreesToRadians(AngleDegrees);
 	//float Pi = FMath::DegreesToRadians(-90.0f);
-	FVector NewScale(0.35*FMath::Sin(AngleRadians) + 0.6f);
+	FVector NewScale(0.35 * FMath::Sin(AngleRadians) + 0.6f);
 
 	FTransform NewTransform(YawRotation, MoveZAxis, NewScale);
 

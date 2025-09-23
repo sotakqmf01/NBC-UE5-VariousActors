@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -13,7 +13,7 @@ UCLASS()
 class BASIC_API ARandomLocationSpawner : public AActor
 {
 	GENERATED_BODY()
-	
+
 public:
 	ARandomLocationSpawner();
 
@@ -21,10 +21,10 @@ protected:
 	USceneComponent* SceneRoot;
 	UBoxComponent* SpawnVolume;
 
-	// ½ºÆùÇÑ ¾×ÅÍµéÀÇ À§Ä¡¸¦ ´ãÀ» ¹è¿­
+	// ìŠ¤í°í•œ ì•¡í„°ë“¤ì˜ ìœ„ì¹˜ë¥¼ ë‹´ì„ ë°°ì—´
 	TSet<AItem*> ItemSet;
 
-	// ÀÏÁ¤ ¹üÀ§, ÀÌ ¹üÀ§ ¾È¿¡¼­ ·£´ıÇÏ°Ô ¾×ÅÍ ½ºÆù
+	// ì¼ì • ë²”ìœ„, ì´ ë²”ìœ„ ì•ˆì—ì„œ ëœë¤í•˜ê²Œ ì•¡í„° ìŠ¤í°
 	float XAxisMin;
 	float XAxisMax;
 	float YAxisMin;

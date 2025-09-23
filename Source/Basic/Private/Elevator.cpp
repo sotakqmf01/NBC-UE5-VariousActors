@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "Elevator.h"
@@ -12,7 +12,7 @@ AElevator::AElevator()
 
 	SetRootComponent(SceneRoot);
 	StaticMeshComp->SetupAttachment(SceneRoot);
-	
+
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> MeshAsset(TEXT("/Game/Resources/Props/SM_AssetPlatform.SM_AssetPlatform"));
 	if (MeshAsset.Succeeded())
 	{
@@ -25,7 +25,7 @@ AElevator::AElevator()
 	//InterSpeedZ = 0.4f;
 	StartLocation = FVector(0.0f, 1000.0f, 0.0f);
 	EndLocation = FVector(0.0f, 1000.0f, 700.0f);
-	
+
 	bIsPaused = false;
 }
 
@@ -35,8 +35,8 @@ void AElevator::BeginPlay()
 
 	SetActorLocation(StartLocation);
 
-	// ÇöÀç À§Ä¡¿Í Å¸°ÙÀ» »ı¼ºÀÚ¿¡¼­ ÃÊ±âÈ­ÇÏ¸é ¿¡µğÅÍ¿¡¼­ ÀÎ½ºÅÏ½ºÀÇ °ªÀ» ¹Ù²Ù´õ¶óµµ ¹Ù²Û °ªÀÌ Àû¿ëÀÌ ¾ÈµÊ
-	// BeginPlay()¿¡¼­ ÃÊ±âÈ­ÇØ¾ß ¿¡µğÅÍ¿¡¼­ º¯°æÇÑ °ªÀ¸·Î ÃÊ±âÈ­µÇ¾î¼­ Á¦´ë·Î ÀÛµ¿
+	// í˜„ì¬ ìœ„ì¹˜ì™€ íƒ€ê²Ÿì„ ìƒì„±ìì—ì„œ ì´ˆê¸°í™”í•˜ë©´ ì—ë””í„°ì—ì„œ ì¸ìŠ¤í„´ìŠ¤ì˜ ê°’ì„ ë°”ê¾¸ë”ë¼ë„ ë°”ê¾¼ ê°’ì´ ì ìš©ì´ ì•ˆë¨
+	// BeginPlay()ì—ì„œ ì´ˆê¸°í™”í•´ì•¼ ì—ë””í„°ì—ì„œ ë³€ê²½í•œ ê°’ìœ¼ë¡œ ì´ˆê¸°í™”ë˜ì–´ì„œ ì œëŒ€ë¡œ ì‘ë™
 	CurrentLocation = StartLocation;
 	CurrentTarget = EndLocation;
 }
@@ -52,18 +52,18 @@ void AElevator::Tick(float DeltaTime)
 
 	CurrentLocation = GetActorLocation();
 
-	// VInterpTo():°¨¼Ó º¸°£
-	// °¨¼Ó º¸°£À» »ç¿ëÇÏ¸é ¸ñÇ¥ÁöÁ¡¿¡ °ÅÀÇ ´Ù¿Í°¡¸é ¼Óµµ°¡ ³Ê¹« ´À·ÁÁ®¼­ Á¤È®È÷ ¸ñÇ¥ÁöÁ¡¿¡ µµ´ŞÇÏ±â±îÁö ³Ê¹«³Ê¹« ¿À·¡°É¸²
-	// ¹Ø¿¡ ÇöÀç À§Ä¡¿Í ¸ñÇ¥ À§Ä¡ »çÀÌÀÇ °Å¸®¸¦ IsNearlyZero()¸»°í 1.0f³ª 2.0f º¸´Ù ÀÛÀºÁö ºñ±³ÇÏ´Â °É·Î ¹Ù²Ù¸é µÇ±ä µÊ
+	// VInterpTo():ê°ì† ë³´ê°„
+	// ê°ì† ë³´ê°„ì„ ì‚¬ìš©í•˜ë©´ ëª©í‘œì§€ì ì— ê±°ì˜ ë‹¤ì™€ê°€ë©´ ì†ë„ê°€ ë„ˆë¬´ ëŠë ¤ì ¸ì„œ ì •í™•íˆ ëª©í‘œì§€ì ì— ë„ë‹¬í•˜ê¸°ê¹Œì§€ ë„ˆë¬´ë„ˆë¬´ ì˜¤ë˜ê±¸ë¦¼
+	// ë°‘ì— í˜„ì¬ ìœ„ì¹˜ì™€ ëª©í‘œ ìœ„ì¹˜ ì‚¬ì´ì˜ ê±°ë¦¬ë¥¼ IsNearlyZero()ë§ê³  1.0fë‚˜ 2.0f ë³´ë‹¤ ì‘ì€ì§€ ë¹„êµí•˜ëŠ” ê±¸ë¡œ ë°”ê¾¸ë©´ ë˜ê¸´ ë¨
 	//FVector NewLocation = FMath::VInterpTo(CurrentLocation, CurrentTarget, DeltaTime, InterSpeedZ);
-	
-	// VInterConstantTo():ÀÏÁ¤ ¼Óµµ º¸°£
-	// MovingPlatform¿¡¼­ À§Ä¡¿¡ ±×³É ¼Óµµ*DeltaTimeÀ» ´õÇØÁØ °ÍÃ³·³ ÀÛµ¿
+
+	// VInterConstantTo():ì¼ì • ì†ë„ ë³´ê°„
+	// MovingPlatformì—ì„œ ìœ„ì¹˜ì— ê·¸ëƒ¥ ì†ë„*DeltaTimeì„ ë”í•´ì¤€ ê²ƒì²˜ëŸ¼ ì‘ë™
 	FVector NewLocation = FMath::VInterpConstantTo(CurrentLocation, CurrentTarget, DeltaTime, SpeedZ);
-	
+
 	SetActorLocation(NewLocation);
 
-	
+
 	//if(FVector::Dist(CurrentLocation, CurrentTarget) < 2.0f)
 	if (FMath::IsNearlyZero(FVector::Dist(CurrentLocation, CurrentTarget)))
 	{
@@ -82,4 +82,3 @@ void AElevator::ResumeMovement()
 	bIsPaused = false;
 	CurrentTarget = (CurrentLocation == StartLocation) ? EndLocation : StartLocation;
 }
-

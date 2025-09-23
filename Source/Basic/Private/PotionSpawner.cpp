@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #include "PotionSpawner.h"
 #include "SpawnedPotion.h"
@@ -13,7 +13,7 @@ APotionSpawner::APotionSpawner()
 
 	SetRootComponent(SceneRoot);
 	StaticMeshComp->SetupAttachment(SceneRoot);
-	
+
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> MeshAsset(TEXT("/Game/Resources/Props/SM_Lamp_Ceiling.SM_Lamp_Ceiling"));
 	if (MeshAsset.Succeeded())
 	{
@@ -34,9 +34,9 @@ void APotionSpawner::BeginPlay()
 
 	FTimerHandle SpawnTimerHandle;
 	FTimerHandle DespawnTimerHandle;
-	
-	// ÀÌ·¸°Ô Tick()ÀÌ ¾Æ´Ñ BeginPlay()¿¡¼­ Å¸ÀÌ¸Ó¸¦ ¼³Á¤ÇØ³õÀ¸¸é Tick()À» »ç¿ëÇÏÁö ¾Ê¾ÆµµµÇ¾î¼­ ¼º´ÉÀÌ ÁÁ¾ÆÁú ¼ö ÀÖ´Âµ¥
-	// ´ë½Å °ªµéÀ» ¿¡µğÅÍ¿¡¼­ µ¿ÀûÀ¸·Î ¹Ù²Ü ¼ö´Â ¾øÀ½(¹Ù²Ü ¼ö´Â ÀÖ´õ¶óµµ Àû¿ëÀ» ÇÒ ¼ö°¡ ¾øÀ½)
+
+	// ì´ë ‡ê²Œ Tick()ì´ ì•„ë‹Œ BeginPlay()ì—ì„œ íƒ€ì´ë¨¸ë¥¼ ì„¤ì •í•´ë†“ìœ¼ë©´ Tick()ì„ ì‚¬ìš©í•˜ì§€ ì•Šì•„ë„ë˜ì–´ì„œ ì„±ëŠ¥ì´ ì¢‹ì•„ì§ˆ ìˆ˜ ìˆëŠ”ë°
+	// ëŒ€ì‹  ê°’ë“¤ì„ ì—ë””í„°ì—ì„œ ë™ì ìœ¼ë¡œ ë°”ê¿€ ìˆ˜ëŠ” ì—†ìŒ(ë°”ê¿€ ìˆ˜ëŠ” ìˆë”ë¼ë„ ì ìš©ì„ í•  ìˆ˜ê°€ ì—†ìŒ)
 	GetWorld()->GetTimerManager().SetTimer(SpawnTimerHandle, this, &APotionSpawner::SpawnActor, 10.0f, true, 0.0f);
 	GetWorld()->GetTimerManager().SetTimer(DespawnTimerHandle, this, &APotionSpawner::DespawnActor, 10.0f, true, 7.0f);
 }
@@ -50,7 +50,7 @@ void APotionSpawner::DespawnActor()
 	if (SpawnedPotion != nullptr)
 	{
 		SpawnedPotion->Destroy();
-		// nullptr·Î ¸¸µé¾î¾ß ´ÙÀ½ SpawnActor¿¡¼­ PotionÀ» »ı¼ºÇÒ ¼ö ÀÖÀ½
+		// nullptrë¡œ ë§Œë“¤ì–´ì•¼ ë‹¤ìŒ SpawnActorì—ì„œ Potionì„ ìƒì„±í•  ìˆ˜ ìˆìŒ
 		SpawnedPotion = nullptr;
 	}
 }
@@ -61,7 +61,7 @@ void APotionSpawner::SpawnActor()
 	//FString TimeString = Now.ToString(TEXT("%H:%M:%S.%f"));
 	//UE_LOG(LogTemp, Warning, TEXT("Current time with milliseconds: %s"), *TimeString);
 
-	// LifeSpan() È°¿ëÇÏ´Â ¹ı
+	// LifeSpan() í™œìš©í•˜ëŠ” ë²•
 	//if (!IsValid(SpawnedPotion))
 	//	SpawnedPotion = nullptr;
 
@@ -74,4 +74,4 @@ void APotionSpawner::SpawnActor()
 	}
 }
 
-// ·£´ı ¾×ÅÍ ½ºÆù => ¿¡¼Â Å×ÀÌºí ¾Ë¾Æº¸±â
+// ëœë¤ ì•¡í„° ìŠ¤í° => ì—ì…‹ í…Œì´ë¸” ì•Œì•„ë³´ê¸°

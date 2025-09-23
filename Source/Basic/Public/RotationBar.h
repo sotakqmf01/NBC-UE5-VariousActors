@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -10,19 +10,19 @@ UCLASS()
 class BASIC_API ARotationBar : public AActor
 {
 	GENERATED_BODY()
-	
-public:	
+
+public:
 	// Sets default values for this actor's properties
 	ARotationBar();
 
 protected:
 	UPROPERTY(VisibleAnywhere, Category = "Bar|Components")
 	USceneComponent* SceneRoot;
-	// ½ºÅÂÆ½ ¸Ş½Ã ¿¡µğÅÍ¿¡¼­ º¯°æ ºÒ°¡´É
+	// ìŠ¤íƒœí‹± ë©”ì‹œ ì—ë””í„°ì—ì„œ ë³€ê²½ ë¶ˆê°€ëŠ¥
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Bar|Components")
 	UStaticMeshComponent* StaticMeshComp;
 
-	// ¸ğµç º¯¼ö´Â ÀÎ½ºÅÏ½ºµé¸¸ º¯°æ °¡´É
+	// ëª¨ë“  ë³€ìˆ˜ëŠ” ì¸ìŠ¤í„´ìŠ¤ë“¤ë§Œ ë³€ê²½ ê°€ëŠ¥
 	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "Bar|Properties");
 	FVector SettingLocation;
 	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "Bar|Properties");

@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "RandomMovingBar.h"
@@ -12,7 +12,7 @@ ARandomMovingBar::ARandomMovingBar()
 
 	SetRootComponent(SceneRoot);
 	StaticMeshComp->SetupAttachment(SceneRoot);
-	
+
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> MeshAsset(TEXT("/Game/Resources/Props/SM_PillarFrame.SM_PillarFrame"));
 	if (MeshAsset.Succeeded())
 	{
@@ -30,7 +30,7 @@ ARandomMovingBar::ARandomMovingBar()
 	EndLocationY = 2600.0f;
 	StartLocationZ = 720.0f;
 	EndLocationZ = 1000.0f;
-	
+
 	MinOfRange = 100.0f;
 	MaxOfRange = 280.0f;
 }
@@ -38,7 +38,7 @@ ARandomMovingBar::ARandomMovingBar()
 void ARandomMovingBar::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
 	SetActorLocation(FVector(0.0f, StartLocationY, StartLocationZ));
 
 	EndLocationZ = FMath::FRandRange(StartLocationZ + MinOfRange, StartLocationZ + MaxOfRange);
@@ -66,7 +66,7 @@ void ARandomMovingBar::Tick(float DeltaTime)
 	if (GetActorLocation().Y > EndLocationY || GetActorLocation().Y < StartLocationY)
 	{
 		FVector CurrentLocation = GetActorLocation();
-		// À§Ä¡ º¸Á¤
+		// ìœ„ì¹˜ ë³´ì •
 		FVector CorrectLocation(CurrentLocation.X, TargetLocationY, CurrentLocation.Z);
 		SetActorLocation(CorrectLocation);
 
@@ -77,16 +77,16 @@ void ARandomMovingBar::Tick(float DeltaTime)
 	if (GetActorLocation().Z > EndLocationZ || GetActorLocation().Z < StartLocationZ)
 	{
 		FVector CurrentLocation = GetActorLocation();
-		// À§Ä¡ º¸Á¤
+		// ìœ„ì¹˜ ë³´ì •
 		FVector CorrectLocation(CurrentLocation.X, CurrentLocation.Y, TargetLocationZ);
 		SetActorLocation(CorrectLocation);
 
-		// ¸ñÇ¥ ÁöÁ¡ÀÌ EndLocationÀÌ¸é if¹®¿¡ µµÂøÇßÀ» ¶§ »õ·Î¿î EndLocationZ¸¦ ·£´ýÀ¸·Î ¼³Á¤ÇÏ´Âµ¥
-		// ÀÌ °ªÀÌ ÇöÀç À§Ä¡ Zº¸´Ù ³·Àº °ªÀÌ °É¸®¸é, ´ÙÀ½ »çÀÌÅ¬¿¡¼­ À§ÂÊ if¹®¿¡ °É·Á¼­ ZÃàÀÌ StartLocationZ·Î º¸Á¤ÀÌ µÇ¾î¼­ ÀÌ»óÇÏ°Ô ÀÛµ¿ÇÔ
+		// ëª©í‘œ ì§€ì ì´ EndLocationì´ë©´ ifë¬¸ì— ë„ì°©í–ˆì„ ë•Œ ìƒˆë¡œìš´ EndLocationZë¥¼ ëžœë¤ìœ¼ë¡œ ì„¤ì •í•˜ëŠ”ë°
+		// ì´ ê°’ì´ í˜„ìž¬ ìœ„ì¹˜ Zë³´ë‹¤ ë‚®ì€ ê°’ì´ ê±¸ë¦¬ë©´, ë‹¤ìŒ ì‚¬ì´í´ì—ì„œ ìœ„ìª½ ifë¬¸ì— ê±¸ë ¤ì„œ Zì¶•ì´ StartLocationZë¡œ ë³´ì •ì´ ë˜ì–´ì„œ ì´ìƒí•˜ê²Œ ìž‘ë™í•¨
 		//if (TargetLocationZ == EndLocationZ)
-		 
-		// ÇöÀç À§Ä¡ Z°¡ StartLocationZÀÏ ¶§(¹Ø¿¡ ¿ÔÀ» ¶§) »õ·Î¿î EndLocationZ¸¦ ¼³Á¤
-		if(TargetLocationZ == StartLocationZ)
+
+		// í˜„ìž¬ ìœ„ì¹˜ Zê°€ StartLocationZì¼ ë•Œ(ë°‘ì— ì™”ì„ ë•Œ) ìƒˆë¡œìš´ EndLocationZë¥¼ ì„¤ì •
+		if (TargetLocationZ == StartLocationZ)
 		{
 			EndLocationZ = FMath::FRandRange(StartLocationZ + MinOfRange, StartLocationZ + MaxOfRange);
 		}
@@ -95,4 +95,3 @@ void ARandomMovingBar::Tick(float DeltaTime)
 		SpeedZ *= -1;
 	}
 }
-

@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "DisappearingPlatform.h"
@@ -50,7 +50,7 @@ void ADisappearingPlatform::Tick(float DeltaTime)
 	if (TotalDeltaTime >= VisibleTime)
 	{
 		bIsInvisible = true;
-		// ¾×ÅÍ¸¦ ¼û±â·Á¸é ÀÎÀÚ·Î true¸¦ ³Ö¾î¾ßÇÔ
+		// ì•¡í„°ë¥¼ ìˆ¨ê¸°ë ¤ë©´ ì¸ìë¡œ trueë¥¼ ë„£ì–´ì•¼í•¨
 		SetActorHiddenInGame(bIsInvisible);
 
 		GetWorld()->GetTimerManager().SetTimer(VisibleTimerHandle, this, &ADisappearingPlatform::ChangeVisibility, InvisibleTime);
@@ -61,6 +61,6 @@ void ADisappearingPlatform::ChangeVisibility()
 {
 	TotalDeltaTime = 0.0f;
 	bIsInvisible = false;
-	// ¾×ÅÍ¸¦ ¼û±â·Á¸é ÀÎÀÚ·Î false¸¦ ³Ö¾î¾ßÇÔ
+	// ì•¡í„°ë¥¼ ìˆ¨ê¸°ë ¤ë©´ ì¸ìë¡œ falseë¥¼ ë„£ì–´ì•¼í•¨
 	SetActorHiddenInGame(bIsInvisible);
 }

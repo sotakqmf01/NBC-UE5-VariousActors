@@ -1,25 +1,25 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "MovingPlatform.h"
 
 AMovingPlatform::AMovingPlatform()
 {
- 	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = true;
 
 	SceneRoot = CreateDefaultSubobject<USceneComponent>(TEXT("SceneRoot"));
 	StaticMeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
 
 	SetRootComponent(SceneRoot);
 	StaticMeshComp->SetupAttachment(SceneRoot);
-	
+
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> MeshAsset(TEXT("/Game/Resources/Props/Floor_400x400.Floor_400x400"));
 	if (MeshAsset.Succeeded())
 	{
 		StaticMeshComp->SetStaticMesh(MeshAsset.Object);
 	}
 
-	// default ±âº» À§Ä¡´Â (0,0,0), ¿¡µðÅÍ¿¡¼­ ¼öÁ¤ °¡´É
+	// default ê¸°ë³¸ ìœ„ì¹˜ëŠ” (0,0,0), ì—ë””í„°ì—ì„œ ìˆ˜ì • ê°€ëŠ¥
 	StartLocation = FVector::ZeroVector;
 	SpeedY = 750.0f;
 	DistanceLimit = 1000.0f;
@@ -40,17 +40,17 @@ void AMovingPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	// ¸ØÃçÀÖ´Â »óÅÂ¸é ¾Æ¹«°Íµµ ¾ÈÇÏ°í ¹Ù·Î return
+	// ë©ˆì¶°ìžˆëŠ” ìƒíƒœë©´ ì•„ë¬´ê²ƒë„ ì•ˆí•˜ê³  ë°”ë¡œ return
 	if (bIsPaused)
 	{
 		return;
 	}
 
-	// yÃà ¹æÇâÀ¸·Î ¿òÁ÷ÀÌ±â
+	// yì¶• ë°©í–¥ìœ¼ë¡œ ì›€ì§ì´ê¸°
 	AddActorWorldOffset(FVector(0.0f, SpeedY * DeltaTime, 0.0f));
 	Distance += SpeedY * DeltaTime;
 
-	// Á¤ÇØ ³õÀº °Å¸®¸¦ ÀÌµ¿ÇßÀ¸¸é À§Ä¡ º¸Á¤ÇÏ°í Àá½Ã Á¤Áö
+	// ì •í•´ ë†“ì€ ê±°ë¦¬ë¥¼ ì´ë™í–ˆìœ¼ë©´ ìœ„ì¹˜ ë³´ì •í•˜ê³  ìž ì‹œ ì •ì§€
 	if (FMath::Abs(Distance) >= DistanceLimit)
 	{
 		bIsPaused = true;

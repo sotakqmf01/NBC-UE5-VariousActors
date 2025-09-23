@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #include "RandomLocationSpawner.h"
 #include "Components/BoxComponent.h"
@@ -8,7 +8,7 @@
 ARandomLocationSpawner::ARandomLocationSpawner()
 {
 	PrimaryActorTick.bCanEverTick = false;
-	
+
 	SceneRoot = CreateDefaultSubobject<USceneComponent>(TEXT("SceneRoot"));
 	SpawnVolume = CreateDefaultSubobject<UBoxComponent>(TEXT("SpawnVolume"));
 
@@ -25,7 +25,7 @@ ARandomLocationSpawner::ARandomLocationSpawner()
 void ARandomLocationSpawner::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
 	FTimerHandle SpawnTimerHandle;
 
 	GetWorld()->GetTimerManager().SetTimer(SpawnTimerHandle, this, &ARandomLocationSpawner::SpawnActor, 1.0f, true, 1.0f);
@@ -50,7 +50,7 @@ void ARandomLocationSpawner::SpawnActor()
 
 	OrganizeSet();
 
-	// ÄÄÇ»ÅÍ°¡ ·£´ýÇÑ ÁÂÇ¥¸¦ »Ì´Â È½¼ö´Â ÃÖ´ë 10¹ø
+	// ì»´í“¨í„°ê°€ ëžœë¤í•œ ì¢Œí‘œë¥¼ ë½‘ëŠ” íšŸìˆ˜ëŠ” ìµœëŒ€ 10ë²ˆ
 	int32 LoopCount = 10;
 
 	while (!bIsPossibleLocation && LoopCount > 0)
@@ -63,8 +63,8 @@ void ARandomLocationSpawner::SpawnActor()
 		for (AItem* item : ItemSet)
 		{
 			if (FVector::Dist(item->GetActorLocation(), SpawnLocation) < 100.0f)
-			{	
-				// ¾×ÅÍ¸¦ ½ºÆùÇßÀ» ¶§ °ãÃÄÁö´Â °æ¿ì
+			{
+				// ì•¡í„°ë¥¼ ìŠ¤í°í–ˆì„ ë•Œ ê²¹ì³ì§€ëŠ” ê²½ìš°
 				bIsPossibleLocation = false;
 				break;
 			}
@@ -82,10 +82,10 @@ void ARandomLocationSpawner::SpawnActor()
 		--LoopCount;
 	}
 
-	// ½ºÆùÇÒ ¼ö ÀÖ´Â ·£´ý ÁÂÇ¥¸¦ »Ì¾ÒÀ» ¶§
+	// ìŠ¤í°í•  ìˆ˜ ìžˆëŠ” ëžœë¤ ì¢Œí‘œë¥¼ ë½‘ì•˜ì„ ë•Œ
 	if (bIsPossibleLocation)
 	{
-		// ÃÖ´ë 10°³ ±îÁö ½ºÆùµÇ¾î ÀÖÀ» ¼ö ÀÖÀ½ 
+		// ìµœëŒ€ 10ê°œ ê¹Œì§€ ìŠ¤í°ë˜ì–´ ìžˆì„ ìˆ˜ ìžˆìŒ 
 		if (ItemSet.Num() < 10)
 		{
 			AItem* NewItem = GetWorld()->SpawnActor<AItem>(SpawnLocation, SpawnRotation);

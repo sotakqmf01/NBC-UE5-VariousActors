@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
@@ -12,26 +12,26 @@ UCLASS()
 class BASIC_API AMyActor : public AActor
 {
 	GENERATED_BODY()
-	
-public:	
+
+public:
 	// Sets default values for this actor's properties
 	AMyActor();
 
 protected:
 	//USceneComponent* SceneRoot;
-	
-	// Ä¸½¶ Äİ¸®Àü ÄÄÆ÷³ÍÆ®(Root Component)
+
+	// ìº¡ìŠ ì½œë¦¬ì „ ì»´í¬ë„ŒíŠ¸(Root Component)
 	UCapsuleComponent* CapsuleRoot;
 
-	// ½ºÄÌ·¹Å» ¸Ş½Ã
+	// ìŠ¤ì¼ˆë ˆíƒˆ ë©”ì‹œ
 	USkeletalMeshComponent* SkeletalMeshComp;
 
-	// ¿Àµğ¿À ÄÄÆ÷³ÍÆ®
+	// ì˜¤ë””ì˜¤ ì»´í¬ë„ŒíŠ¸
 	UAudioComponent* AudioComp;
-	
-	// ½ºÇÁ¸µ ¾Ï
+
+	// ìŠ¤í”„ë§ ì•”
 	USpringArmComponent* SpringArmComp;
 
-	// Ä«¸Ş¶ó
+	// ì¹´ë©”ë¼
 	UCameraComponent* CameraComp;
 };

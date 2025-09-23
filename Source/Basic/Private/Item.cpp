@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "Item.h"
@@ -38,14 +38,14 @@ void AItem::BeginPlay()
 	Super::BeginPlay();
 
 	//SetActorLocation(ItemLocation);
-	//SetActorRotation(ItemRotation);		// pitch(y)-yaw(z)-roll(z) ¼ø¼­
+	//SetActorRotation(ItemRotation);		// pitch(y)-yaw(z)-roll(z) ìˆœì„œ
 	//SetActorScale3D(FVector(2.0f));
 
 	//FVector NewLocation(300.f, 300.f, 300.f);
 	//FRotator NewRotation(0.f, 0.f, 45.f);
 	//FVector NewScale(2.f);
 
-	//FTransform NewTransform(NewRotation, NewLocation, NewScale);	// È¸Àü, À§Ä¡, Å©±â ¼ø¼­
+	//FTransform NewTransform(NewRotation, NewLocation, NewScale);	// íšŒì „, ìœ„ì¹˜, í¬ê¸° ìˆœì„œ
 	//SetActorTransform(NewTransform);
 
 	SetLifeSpan(5.0f);
@@ -57,16 +57,16 @@ void AItem::Tick(float DeltaTime)
 
 	if (!FMath::IsNearlyZero(RotationSpeed))
 	{
-		// LocalRotation()°ú WorldRotation() Â÷ÀÌ´Â ´©±¸ÀÇ ±âÁî¸ğ¸¦ ±âÁØÀ¸·Î µ¿ÀÛÇÒ °ÍÀÎ°¡ÀÇ Â÷ÀÌ
-		// ºí·çÇÁ¸°Æ®ÇÒ ¶§ ¿ÀºêÁ§Æ®µé ¹èÄ¡ÇÏ°í ctrl + `·Î ±âÁî¸ğ ¹Ù²Ù¸é¼­ ¿Å±â°í È¸ÀüÇÏ°í ±×·¨´Âµ¥ ±×°É »ı°¢ÇÏ¸é µÊ
-		// LocalRotation()Àº Local ±âÁî¸ğ, WorldRotation()Àº World ±âÁî¸ğ¸¦ ±âÁØÀ¸·Î È¸Àü
+		// LocalRotation()ê³¼ WorldRotation() ì°¨ì´ëŠ” ëˆ„êµ¬ì˜ ê¸°ì¦ˆëª¨ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ë™ì‘í•  ê²ƒì¸ê°€ì˜ ì°¨ì´
+		// ë¸”ë£¨í”„ë¦°íŠ¸í•  ë•Œ ì˜¤ë¸Œì íŠ¸ë“¤ ë°°ì¹˜í•˜ê³  ctrl + `ë¡œ ê¸°ì¦ˆëª¨ ë°”ê¾¸ë©´ì„œ ì˜®ê¸°ê³  íšŒì „í•˜ê³  ê·¸ë¬ëŠ”ë° ê·¸ê±¸ ìƒê°í•˜ë©´ ë¨
+		// LocalRotation()ì€ Local ê¸°ì¦ˆëª¨, WorldRotation()ì€ World ê¸°ì¦ˆëª¨ë¥¼ ê¸°ì¤€ìœ¼ë¡œ íšŒì „
 		//AddActorLocalRotation(FRotator(0.f, RotationSpeed * DeltaTime, 0.f));
 		AddActorWorldRotation(FRotator(0.f, RotationSpeed * DeltaTime, 0.f));
 
-		// SetActorRotation()À» »ç¿ëÇØ¼­ È¸Àü ½ÃÅ³ ¼ö ÀÖÁö ¾ÊÀ»±î?
-		// µÇ±ä µÇ´Âµ¥ ÀÌ·¸°Ô ¾²´Â °Íº¸´Ù ±×³É ¸¸µé¾îÁ® ÀÖ´Â°Å ¾²´Â°Ô ÇÑ ÁÙ¸¸ ¾²¸éµÇ´Ï±î ÆíÇÒµí
+		// SetActorRotation()ì„ ì‚¬ìš©í•´ì„œ íšŒì „ ì‹œí‚¬ ìˆ˜ ìˆì§€ ì•Šì„ê¹Œ?
+		// ë˜ê¸´ ë˜ëŠ”ë° ì´ë ‡ê²Œ ì“°ëŠ” ê²ƒë³´ë‹¤ ê·¸ëƒ¥ ë§Œë“¤ì–´ì ¸ ìˆëŠ”ê±° ì“°ëŠ”ê²Œ í•œ ì¤„ë§Œ ì“°ë©´ë˜ë‹ˆê¹Œ í¸í• ë“¯
 		//FRotator CurrentRotation = GetActorRotation() + FRotator(0.f, RotationSpeed * DeltaTime, 0.f);
 		//SetActorRotation(CurrentRotation);
 	}
-	
+
 }

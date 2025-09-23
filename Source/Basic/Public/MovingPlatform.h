@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -10,18 +10,18 @@ UCLASS()
 class BASIC_API AMovingPlatform : public AActor
 {
 	GENERATED_BODY()
-	
-public:	
+
+public:
 	AMovingPlatform();
 
 protected:
 	UPROPERTY(VisibleAnywhere, Category = "Platform|Components");
 	USceneComponent* SceneRoot;
-	// ½ºÅÂÆ½ ¸Ş½Ã ¼±ÅÃ ¾îµğ¼­³ª ÀÚÀ¯·Ó°Ô
+	// ìŠ¤íƒœí‹± ë©”ì‹œ ì„ íƒ ì–´ë””ì„œë‚˜ ììœ ë¡­ê²Œ
 	UPROPERTY(EditAnywhere, Category = "Platform|Components")
 	UStaticMeshComponent* StaticMeshComp;
 
-	// ÀÎ½ºÅÏ½ºµéÀº ¿¡µğÅÍ¿¡¼­ º¯¼ö °ª º¯°æ °¡´É
+	// ì¸ìŠ¤í„´ìŠ¤ë“¤ì€ ì—ë””í„°ì—ì„œ ë³€ìˆ˜ ê°’ ë³€ê²½ ê°€ëŠ¥
 	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "Platform|Properties")
 	FVector StartLocation;
 	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "Platform|Properties")
@@ -30,11 +30,11 @@ protected:
 	float DistanceLimit;
 	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "Platform|Properties")
 	float PausedDuration;
-	// ¿¡µğÅÍ¿¡¼­ º¸¿©ÁÖÁö ¾ÊÀ½
+	// ì—ë””í„°ì—ì„œ ë³´ì—¬ì£¼ì§€ ì•ŠìŒ
 	float Distance;
 	bool bIsPaused;
 	FTimerHandle PauseTimerHandle;
-	
+
 protected:
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;

@@ -1,30 +1,30 @@
-#include "MyActor.h"
+ï»¿#include "MyActor.h"
 
 // Sets default values
 AMyActor::AMyActor()
 {
-	// ·çÆ® ÄÄÆ÷³ÍÆ® ÁöÁ¤
+	// ë£¨íŠ¸ ì»´í¬ë„ŒíŠ¸ ì§€ì •
 	//SceneRoot = CreateDefaultSubobject<USceneComponent>(TEXT("SceneRoot"));
 	//SetRootComponent(SceneRoot);
 
-	// Ä¸½¶ Äİ¸®Àü ÄÄÆ÷³ÍÆ®¸¦ ·çÆ® ÄÄÆ÷³ÍÆ®·Î ÁöÁ¤
+	// ìº¡ìŠ ì½œë¦¬ì „ ì»´í¬ë„ŒíŠ¸ë¥¼ ë£¨íŠ¸ ì»´í¬ë„ŒíŠ¸ë¡œ ì§€ì •
 	CapsuleRoot = CreateDefaultSubobject<UCapsuleComponent>(TEXT("CapsuleRoot"));
 	SetRootComponent(CapsuleRoot);
 
-	// ·çÆ® ÄÄÆ÷³ÍÆ®´Â ¸» ±×´ë·Î ·çÆ®ÀÌ±â ¶§¹®¿¡ »ó´ëÀûÀÎ À§Ä¡ °è»êÀÌ ºÒ°¡´É
+	// ë£¨íŠ¸ ì»´í¬ë„ŒíŠ¸ëŠ” ë§ ê·¸ëŒ€ë¡œ ë£¨íŠ¸ì´ê¸° ë•Œë¬¸ì— ìƒëŒ€ì ì¸ ìœ„ì¹˜ ê³„ì‚°ì´ ë¶ˆê°€ëŠ¥
 	//CapsuleRoot->SetRelativeLocation(FVector(0, 0, 80));
-	// ¿ùµå¿¡ ´ëÇÑ À§Ä¡´Â Á¶Á¤ °¡´É
+	// ì›”ë“œì— ëŒ€í•œ ìœ„ì¹˜ëŠ” ì¡°ì • ê°€ëŠ¥
 	CapsuleRoot->SetWorldLocation(FVector(0, 0, 90));
-	// xÃà ±×´ë·Î, yÃà Á¶±İ ÁÙÀÌ°í, zÃà ´Ã¸®°í ½ÍÀºµ¥
-	// Ä¸½¶ ÄÄÆ÷³ÍÆ®´Â x,yÃàÀ» µ¶¸³ÀûÀ¸·Î Á¶Á¤ÇÏ´Â °ÍÀ» Áö¿øÇÏÁö ¾ÊÀ½
-	// ¹İÁö¸§°ú ¹İ³ôÀÌ¸¸ ¼³Á¤ °¡´É
+	// xì¶• ê·¸ëŒ€ë¡œ, yì¶• ì¡°ê¸ˆ ì¤„ì´ê³ , zì¶• ëŠ˜ë¦¬ê³  ì‹¶ì€ë°
+	// ìº¡ìŠ ì»´í¬ë„ŒíŠ¸ëŠ” x,yì¶•ì„ ë…ë¦½ì ìœ¼ë¡œ ì¡°ì •í•˜ëŠ” ê²ƒì„ ì§€ì›í•˜ì§€ ì•ŠìŒ
+	// ë°˜ì§€ë¦„ê³¼ ë°˜ë†’ì´ë§Œ ì„¤ì • ê°€ëŠ¥
 	CapsuleRoot->SetCapsuleSize(20.f, 90.f);
 
-	// ½ºÄÌ·¹Å» ¸Ş½Ã Ãß°¡
+	// ìŠ¤ì¼ˆë ˆíƒˆ ë©”ì‹œ ì¶”ê°€
 	SkeletalMeshComp = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("SkeletalMesh"));
 	SkeletalMeshComp->SetupAttachment(CapsuleRoot);
 
-	// ·çÆ® ÄÄÆ÷³ÍÆ®¿¡ ´ëÇØ »ó´ëÀûÀÎ À§Ä¡ º¯°æ
+	// ë£¨íŠ¸ ì»´í¬ë„ŒíŠ¸ì— ëŒ€í•´ ìƒëŒ€ì ì¸ ìœ„ì¹˜ ë³€ê²½
 	SkeletalMeshComp->SetRelativeLocation(FVector(0, 0, -90));
 
 	static ConstructorHelpers::FObjectFinder<USkeletalMesh> SMeshAsset(TEXT("/Game/Resources/Characters/Meshes/SKM_Manny.SKM_Manny"));
@@ -33,7 +33,7 @@ AMyActor::AMyActor()
 		SkeletalMeshComp->SetSkeletalMesh(SMeshAsset.Object);
 	}
 
-	// ½ºÄÌ·¹Å» ¸Ş½Ã¿¡ ¸ÓÆ¼¸®¾ó Àû¿ë
+	// ìŠ¤ì¼ˆë ˆíƒˆ ë©”ì‹œì— ë¨¸í‹°ë¦¬ì–¼ ì ìš©
 	static ConstructorHelpers::FObjectFinder<UMaterial> GoldMaterialAsset(TEXT("/Game/Resources/Materials/M_Metal_Gold.M_Metal_Gold"));
 	if (GoldMaterialAsset.Succeeded())
 	{
@@ -46,27 +46,27 @@ AMyActor::AMyActor()
 		SkeletalMeshComp->SetMaterial(1, RustMaterialAsset.Object);
 	}
 
-	// ¿Àµğ¿À ÄÄÆ÷³ÍÆ® Ãß°¡
+	// ì˜¤ë””ì˜¤ ì»´í¬ë„ŒíŠ¸ ì¶”ê°€
 	AudioComp = CreateDefaultSubobject<UAudioComponent>(TEXT("Audio"));
 	AudioComp->SetupAttachment(SkeletalMeshComp);
 
-	// ¿Àµğ¿À ÄÄÆ÷³ÍÆ®¿¡ ÁöÁ¤µÉ »ç¿îµå ¸®¼Ò½º Àû¿ë(USoundCue°¡ ¾ø¾î¼­ USoundBase »ç¿ë)
+	// ì˜¤ë””ì˜¤ ì»´í¬ë„ŒíŠ¸ì— ì§€ì •ë  ì‚¬ìš´ë“œ ë¦¬ì†ŒìŠ¤ ì ìš©(USoundCueê°€ ì—†ì–´ì„œ USoundBase ì‚¬ìš©)
 	//static ConstructorHelpers::FObjectFinder<USoundBase> SoundAsset(TEXT("/Game/Resources/Audio/Fire01_Cue.Fire01_Cue"));
 	//if (SoundAsset.Succeeded())
 	//{
 	//	AudioComp->SetSound(SoundAsset.Object);
 	//}
 
-	// ½ºÇÁ¸µ ¾Ï ÄÄÆ÷³ÍÆ® Ãß°¡
+	// ìŠ¤í”„ë§ ì•” ì»´í¬ë„ŒíŠ¸ ì¶”ê°€
 	SpringArmComp = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
 	SpringArmComp->SetupAttachment(SkeletalMeshComp);
 	SpringArmComp->SetRelativeLocation(FVector(0, 0, 150));
-	// FRotator´Â pitch(°í°³ ²ô´ö°Å¸®±â), yaw(µµ¸®µµ¸®ÇÏ±â), roll(±â¿ïÀÌ±â) ¼øÀ¸·Î ÀúÀå
+	// FRotatorëŠ” pitch(ê³ ê°œ ë„ë•ê±°ë¦¬ê¸°), yaw(ë„ë¦¬ë„ë¦¬í•˜ê¸°), roll(ê¸°ìš¸ì´ê¸°) ìˆœìœ¼ë¡œ ì €ì¥
 	SpringArmComp->SetRelativeRotation(FRotator(-20.f, 90.f, 0.f));
 	SpringArmComp->TargetArmLength = 200;
 	SpringArmComp->bUsePawnControlRotation = true;
 
-	// Ä«¸Ş¶ó ÄÄÆ÷³ÍÆ® Ãß°¡
+	// ì¹´ë©”ë¼ ì»´í¬ë„ŒíŠ¸ ì¶”ê°€
 	CameraComp = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	CameraComp->SetupAttachment(SpringArmComp, USpringArmComponent::SocketName);
 	CameraComp->bUsePawnControlRotation = false;

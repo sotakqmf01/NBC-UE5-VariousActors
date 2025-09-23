@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -10,8 +10,8 @@ UCLASS()
 class BASIC_API ARandomMovingBar : public AActor
 {
 	GENERATED_BODY()
-	
-public:	
+
+public:
 	ARandomMovingBar();
 
 protected:
@@ -24,8 +24,8 @@ protected:
 	float SpeedY;
 	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "Bar|Properties|Speed")
 	float SpeedZ;
-	
-	// Ãà º° ¿Õº¹ÇÒ ½ÃÀÛÀ§Ä¡¿Í ³¡À§Ä¡
+
+	// ì¶• ë³„ ì™•ë³µí•  ì‹œì‘ìœ„ì¹˜ì™€ ëìœ„ì¹˜
 	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "Bar|Properties|Locations")
 	float StartLocationY;
 	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "Bar|Properties|Locations")
@@ -35,7 +35,7 @@ protected:
 	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "Bar|Properties|Locations")
 	float EndLocationZ;
 
-	// ZÃà¿¡¼­ ÇÑ ¹ø ¿Õº¹ÇÒ ¶§¸¶´Ù ·£´ıÇÑ ³¡À§Ä¡¸¦ ¼±ÅÃÇÏ±âÀ§ÇÑ ·£´ıÇÔ¼öÀÇ ¹üÀ§ ÁöÁ¤
+	// Zì¶•ì—ì„œ í•œ ë²ˆ ì™•ë³µí•  ë•Œë§ˆë‹¤ ëœë¤í•œ ëìœ„ì¹˜ë¥¼ ì„ íƒí•˜ê¸°ìœ„í•œ ëœë¤í•¨ìˆ˜ì˜ ë²”ìœ„ ì§€ì •
 	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "Bar|Properties|Range")
 	float MinOfRange;
 	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category = "Bar|Properties|Range")

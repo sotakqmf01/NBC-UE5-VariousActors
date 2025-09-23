@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+癤�// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "SpawnedPotion.h"
@@ -12,7 +12,7 @@ ASpawnedPotion::ASpawnedPotion()
 
 	SetRootComponent(SceneRoot);
 	StaticMeshComp->SetupAttachment(SceneRoot);
-	
+
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> MeshAsset(TEXT("/Game/Resources/Props/SM_Potion_A.SM_Potion_A"));
 	if (MeshAsset.Succeeded())
 	{
@@ -29,7 +29,6 @@ void ASpawnedPotion::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// 알아서 5초 뒤에 삭제
 	//SetLifeSpan(5.0f);
 }
 
@@ -42,4 +41,3 @@ void ASpawnedPotion::Tick(float DeltaTime)
 		AddActorWorldRotation(FRotator(0.0f, RotationSpeed * DeltaTime, 0.0f));
 	}
 }
-
